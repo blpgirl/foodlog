@@ -1,0 +1,33 @@
+<% content_for :title do %>
+      <%= @entry.meal_type %> &ndash; <%= @entry.created_at.to_s(:nice_date) %>
+<% end %>
+
+<div class="columns mt-4 is-centered">
+  <div class="column is-one-quarter">
+    <div class="panel is-light">
+      <p class="panel-heading"><%= @entry.meal_type %></p>
+
+      <div class="panel-block">Calories:
+      <%= @entry.calories %></div>
+
+      <div class="panel-block">Proteins:
+      <%= @entry.proteins %></div>
+
+      <div class="panel-block">Carbohydrates:
+      <%= @entry.carbohydrates %></div>
+
+      <div class="panel-block">Fats:
+      <%= @entry.fats %></div>
+
+    </div>
+
+    <div class="columns is-mobile is-justify-content-space-between action-buttons">
+      <%= link_to 'Edit', edit_entry_path(@entry), class: "button is-primary" %>
+      <%= link_to 'Delete', entry_path(@entry), method: :delete, data: {confirm: "Are you sure?"}, class: "button is-danger"  %>
+    </div>
+
+    <div class="column">
+
+    </div>
+  </div>
+</div>
